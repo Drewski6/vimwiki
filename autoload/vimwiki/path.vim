@@ -192,10 +192,6 @@ function! vimwiki#path#mkdir(path, ...) abort
       let path = iconv(path, &encoding, vimwiki#vars#get_global('w32_dir_enc'))
     endif
 
-    if a:0 && a:1 && input('Vimwiki: Make new directory: '.path."\n [y]es/[N]o? ") !~? '^y'
-      return 0
-    endif
-
     call mkdir(path, 'p')
     return 1
   endif
